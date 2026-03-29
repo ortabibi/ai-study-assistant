@@ -21,7 +21,7 @@ export default function HomePage() {
     const bottomRef = useRef(null);
 
     useEffect(() => {
-        axios.get('http://localhost:3001/api/documents', {
+        axios.get('https://ai-study-assistant-server.onrender.com/api/documents', {
             headers: { Authorization: `Bearer ${getAuthToken()}` },
         }).then(res => setDocs(res.data.documents || [])).catch(() => { });
     }, []);
@@ -81,7 +81,7 @@ export default function HomePage() {
         try {
             const formData = new FormData();
             formData.append('file', file);
-            const res = await axios.post('http://localhost:3001/api/documents/upload', formData, {
+            const res = await axios.post('https://ai-study-assistant-server.onrender.com/api/documents/upload', formData, {
                 headers: { Authorization: `Bearer ${getAuthToken()}` },
             });
             const doc = res.data?.document;
@@ -98,7 +98,7 @@ export default function HomePage() {
     }
 
     async function handleDelete(id) {
-        await axios.delete(`http://localhost:3001/api/documents/${id}`, {
+        await axios.delete(`https://ai-study-assistant-server.onrender.com/api/documents/${id}`, {
             headers: { Authorization: `Bearer ${getAuthToken()}` },
         });
         setDocs(prev => prev.filter(d => d.id !== id));

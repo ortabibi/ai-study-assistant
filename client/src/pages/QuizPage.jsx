@@ -19,7 +19,7 @@ export default function QuizPage() {
       try {
         const token = getAuthToken();
         const res = await axios.post(
-          'http://localhost:3001/api/ai/quiz',
+          'https://ai-study-assistant-server.onrender.com/api/ai/quiz',
           { documentId },
           { headers: { Authorization: `Bearer ${token}` } }
         );

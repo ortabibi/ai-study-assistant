@@ -17,7 +17,7 @@ function LoginPage() {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:3001/api/auth/login', {
+      const response = await axios.post('https://ai-study-assistant-server.onrender.com/api/auth/login', {
         email,
         password,
       });

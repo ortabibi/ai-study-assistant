@@ -14,7 +14,7 @@ export default function StudyPlanPage() {
     async function fetchPlan() {
       try {
         const res = await axios.post(
-          'http://localhost:3001/api/ai/study-plan',
+          'https://ai-study-assistant-server.onrender.com/api/ai/study-plan',
           { documentId },
           { headers: { Authorization: `Bearer ${getAuthToken()}` } }
         );

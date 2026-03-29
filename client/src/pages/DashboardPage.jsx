@@ -18,7 +18,7 @@ function DashboardPage() {
   useEffect(() => {
     async function fetchDocs() {
       try {
-        const res = await axios.get('http://localhost:3001/api/documents', {
+        const res = await axios.get('https://ai-study-assistant-server.onrender.com/api/documents', {
           headers: { Authorization: `Bearer ${getAuthToken()}` },
         });
         setUploadedDocs(res.data.documents || []);
@@ -40,7 +40,7 @@ function DashboardPage() {
       const formData = new FormData();
       formData.append('file', file);
       const response = await axios.post(
-        'http://localhost:3001/api/documents/upload',
+        'https://ai-study-assistant-server.onrender.com/api/documents/upload',
         formData,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -57,7 +57,7 @@ function DashboardPage() {
 
   async function handleDelete(id) {
     try {
-      await axios.delete(`http://localhost:3001/api/documents/${id}`, {
+      await axios.delete(`https://ai-study-assistant-server.onrender.com/api/documents/${id}`, {
         headers: { Authorization: `Bearer ${getAuthToken()}` },
       });
       setUploadedDocs(prev => prev.filter(d => d.id !== id));

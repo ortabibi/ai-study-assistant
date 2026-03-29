@@ -17,7 +17,7 @@ export default function AskPage() {
     setLoading(true);
     try {
       const res = await axios.post(
-        'http://localhost:3001/api/ai/ask',
+        'https://ai-study-assistant-server.onrender.com/api/ai/ask',
         { documentId, question: q },
         { headers: { Authorization: `Bearer ${getAuthToken()}` } }
       );

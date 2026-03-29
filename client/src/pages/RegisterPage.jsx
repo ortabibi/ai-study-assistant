@@ -18,7 +18,7 @@ function RegisterPage() {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:3001/api/auth/register', {
+      const response = await axios.post('https://ai-study-assistant-server.onrender.com/api/auth/register', {
         name,
         email,
         password,
