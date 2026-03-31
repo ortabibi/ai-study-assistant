@@ -29,8 +29,10 @@ async function uploadDocument(req, res) {
       extractedText = (data.text || '').toString();
     } else if (ext === '.txt' || file.mimetype === 'text/plain') {
       extractedText = file.buffer.toString('utf8');
+    } else if (ext === '.csv' || file.mimetype === 'text/csv') {
+      extractedText = file.buffer.toString('utf8');
     } else {
-      return res.status(400).json({ message: 'Only PDF and TXT files are allowed' });
+      return res.status(400).json({ message: 'Only PDF, TXT and CSV files are allowed' });
     }
 
     extractedText = extractedText.trim();

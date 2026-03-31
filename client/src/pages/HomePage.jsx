@@ -135,8 +135,7 @@ export default function HomePage() {
                         <input
                             ref={fileInputRef}
                             type="file"
-                            accept=".pdf,.txt"
-                            style={{ display: 'none' }}
+                            accept=".pdf,.txt,.csv"                            style={{ display: 'none' }}
                             onChange={handleUpload}
                         />
                         <button style={s.attachBtn} onClick={() => fileInputRef.current?.click()} disabled={uploading}>
